@@ -18,6 +18,11 @@ agentic-assistant-framework/
 │   ├── calendar_kernel.md        # Execution flow & calendar sync protocol
 │   └── variety_attenuators.md    # Friction reduction & systemic guardrails
 └── README.md                     # Core framework documentation
+## System Integration
+
+The prompts stored in `/config/` are structured for direct deployment into **Google AI Studio** system instructions or programmatic initialization via the **Gemini API**:
+
+```python
 import google.generativeai as genai
 
 genai.configure(api_key="YOUR_API_KEY")
@@ -33,3 +38,4 @@ model = genai.GenerativeModel(
 chat = model.start_chat(history=[])
 response = chat.send_message("Initialize operational state.")
 print(response.text)
+```
