@@ -18,18 +18,3 @@ agentic-assistant-framework/
 │   ├── calendar_kernel.md        # Execution flow & calendar sync protocol
 │   └── variety_attenuators.md    # Friction reduction & systemic guardrails
 └── README.md                     # Core framework documentation
-import google.generativeai as genai
-
-genai.configure(api_key="YOUR_API_KEY")
-
-with open("config/system_prompt_charm.md", "r") as f:
-    system_instruction = f.read()
-
-model = genai.GenerativeModel(
-    model_name="gemini-1.5-pro",
-    system_instruction=system_instruction
-)
-
-chat = model.start_chat(history=[])
-response = chat.send_message("Initialize operational state.")
-print(response.text)
